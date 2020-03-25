@@ -8,9 +8,10 @@ node {
     // ip address of the docker private repository(nexus)
     
     //def dockerRepoUrl = "localhost:8083"
-    def dockerRepoUrl = "https://hub.docker.com/repository/docker/knowledgeshare99/docker-hello-world-spring-boot-ks"
+    //def dockerRepoUrl = "https://hub.docker.com/repository/docker/knowledgeshare99/docker-hello-world-spring-boot-ks"
     def dockerImageName = "hello-world-java"
-    def dockerImageTag = "${dockerRepoUrl}/${dockerImageName}:${env.BUILD_NUMBER}"
+    //def dockerImageTag = "${dockerRepoUrl}/${dockerImageName}:${env.BUILD_NUMBER}"
+    def dockerImageTag = "${dockerImageName}:${env.BUILD_NUMBER}"
     
     stage('Clone Repo') { // for display purposes
       // Get some code from a GitHub repository
@@ -54,7 +55,8 @@ node {
       echo "Docker Image Tag Name: ${dockerImageTag}"
 
       //sh "docker login -u admin -p admin123 ${dockerRepoUrl}"
-      sh "docker login -u knowledgeshare99 -p QazWsx#123 ${dockerRepoUrl}"
+      //sh "docker login -u knowledgeshare99 -p QazWsx#123 ${dockerRepoUrl}"
+      sh "docker login -u knowledgeshare99 -p QazWsx#123"
       sh "docker tag ${dockerImageName} ${dockerImageTag}"
       sh "docker push ${dockerImageTag}"
     }
