@@ -8,7 +8,7 @@ node {
     // ip address of the docker private repository(nexus)
     
     //def dockerRepoUrl = "localhost:8083"
-    def dockerRepoUrl = "https://hub.docker.com/repository/docker"
+    def dockerRepoUrl = "https://hub.docker.com/repository/docker/knowledgeshare99/docker-hello-world-spring-boot-ks"
     def dockerImageName = "hello-world-java"
     def dockerImageTag = "${dockerRepoUrl}/${dockerImageName}:${env.BUILD_NUMBER}"
     
