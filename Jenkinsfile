@@ -7,7 +7,8 @@ node {
     def dockerImage
     // ip address of the docker private repository(nexus)
     
-    def dockerRepoUrl = "localhost:8083"
+    //def dockerRepoUrl = "localhost:8083"
+    def dockerRepoUrl = "https://hub.docker.com/repository/docker"
     def dockerImageName = "hello-world-java"
     def dockerImageTag = "${dockerRepoUrl}/${dockerImageName}:${env.BUILD_NUMBER}"
     
@@ -52,7 +53,8 @@ node {
 
       echo "Docker Image Tag Name: ${dockerImageTag}"
 
-      sh "docker login -u admin -p admin123 ${dockerRepoUrl}"
+      //sh "docker login -u admin -p admin123 ${dockerRepoUrl}"
+      sh "docker login -u knowledgeshare99 -p bb61effa-fff4-4562-a6eb-023591b8fe9b ${dockerRepoUrl}"
       sh "docker tag ${dockerImageName} ${dockerImageTag}"
       sh "docker push ${dockerImageTag}"
     }
