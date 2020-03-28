@@ -62,16 +62,16 @@ node {
 	    
     }
    
-    //stage('Deploy Docker Image'){
+    stage('Deploy Docker Image'){
       
-      // deploy docker image to nexus
+      //deploy docker image to nexus
 
-      //echo "Docker Image Tag Name: ${dockerImageTag}"
+      echo "Docker Image Tag Name: ${dockerImageTag}"
 
       //sh "docker login -u admin -p admin123 ${dockerRepoUrl}"
       //sh "docker login -u knowledgeshare99 -p #123 ${dockerRepoUrl}"
-     // sh "docker login -u knowledgeshare99 -p class#123"
-     // sh "docker tag ${dockerImageName} knowledgeshare99/${dockerImageTag}"
-      //sh "docker push knowledgeshare99/${dockerImageTag}"
+     sh "docker login -u knowledgeshare99 -p class#123"
+     sh "docker tag ${dockerImageName} knowledgeshare99/${dockerImageTag}"
+     sh "docker push knowledgeshare99/${dockerImageTag}"
     //}
 }
