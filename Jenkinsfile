@@ -58,7 +58,7 @@ node {
       //sh "docker login -u knowledgeshare99 -p #123 ${dockerRepoUrl}"
       
       //sh "docker run -t -p 8001:8080 ${dockerImageTag}:latest"
-      sh "docker run -t -p 8001:8080 ${dockerImageName}:latest"
+      sh "docker run -t -p 8003:8080 ${dockerImageName}:latest"
 	    
     }
    
