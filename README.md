@@ -8,7 +8,7 @@ Installed: [Docker](https://www.docker.com/), [Java 1.8 or 1.11](https://www.ora
 
 ##### Clone source code from git
 ```
-$  git clone https://github.com/dstar55/docker-hello-world-spring-boot .
+$  git clone https://github.com/dstar55/docker-hello-world-spring-boot-ks .
 ```
 
 ##### Build Docker image
