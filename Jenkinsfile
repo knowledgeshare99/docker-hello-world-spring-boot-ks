@@ -15,7 +15,7 @@ node {
     
     stage('Clone Repo') { // for display purposes
       // Get some code from a GitHub repository
-      git 'https://github.com/knowledgeshare99/docker-hello-world-spring-boot.git'
+      git 'https://github.com/knowledgeshare99/docker-hello-world-spring-boot-ks.git'
       // Get the Maven tool.
       // ** NOTE: This 'maven-3.6.1' Maven tool must be configured
       // **       in the global configuration.           
@@ -24,10 +24,10 @@ node {
   
     stage('Build Project') {
       // build project via maven
-      sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+      sh "'${mvnHome}/bin/mvn' clean package -Dmaven.test.failure.ignore"
     }
 	
-	stage('Publish Tests Results'){
+    stage('Publish Tests Results'){
       parallel(
         publishJunitTestsResultsToJenkins: {
           echo "Publish junit Tests Results"
@@ -35,7 +35,7 @@ node {
 		  archive 'target/*.jar'
         },
         publishJunitTestsResultsToSonar: {
-          echo "This is branch b"
+          echo "This is branch master branch"
       })
     }
 		
@@ -70,7 +70,7 @@ node {
 
       //sh "docker login -u admin -p admin123 ${dockerRepoUrl}"
       //sh "docker login -u knowledgeshare99 -p #123 ${dockerRepoUrl}"
-     sh "docker login -u knowledgeshare99 -p class#123"
+     sh "docker login -u knowledgeshare99 -p class@123"
      sh "docker tag ${dockerImageName} knowledgeshare99/${dockerImageTag}"
      sh "docker push knowledgeshare99/${dockerImageTag}"
     }
