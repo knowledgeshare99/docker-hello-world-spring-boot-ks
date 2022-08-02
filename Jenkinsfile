@@ -70,7 +70,7 @@ node {
 
       //sh "docker login -u admin -p admin123 ${dockerRepoUrl}"
       //sh "docker login -u knowledgeshare99 -p #123 ${dockerRepoUrl}"
-     sh "docker login -u knowledgeshare99 -p class@123"
+     sh "docker login -u knowledgeshare99 -p QazWsx@123"
      sh "docker tag ${dockerImageName} knowledgeshare99/${dockerImageTag}"
      sh "docker push knowledgeshare99/${dockerImageTag}"
     }
